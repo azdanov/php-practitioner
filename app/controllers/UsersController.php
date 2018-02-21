@@ -9,8 +9,6 @@ use App\Core\App;
  */
 class UsersController
 {
-    protected const USERS = 'users';
-
     /**
      * Show all users.
      *
@@ -22,9 +20,9 @@ class UsersController
      */
     public function index(): string
     {
-        $users = App::get('database')->selectAll($this::USERS);
+        $users = App::get('database')->selectAll('users');
 
-        return view($this::USERS, compact('users'));
+        return view('users', compact('users'));
     }
 
     /**
@@ -36,10 +34,10 @@ class UsersController
      */
     public function store(): void
     {
-        App::get('database')->insert($this::USERS, [
+        App::get('database')->insert('users', [
             'name' => $_POST['name'],
         ]);
 
-        redirect($this::USERS);
+        redirect('users');
     }
 }
