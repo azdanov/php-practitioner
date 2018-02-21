@@ -24,18 +24,3 @@ function redirect($path): void
 {
     header("Location: /{$path}");
 }
-
-function f($a, $b)
-{
-    $a = [
-        'dsn' => 'mysql://',
-        'username' => 'root',
-        'password' => 'test',
-    ];
-
-    $b = new PDO(
-        $a['dsn'].'',
-        $a['username'],
-        $a['password'].''
-    );
-}
